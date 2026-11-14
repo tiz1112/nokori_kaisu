@@ -8,7 +8,7 @@
 - 寿命の数値は厚生労働省の公表値を使用（健康寿命：令和4年 男性72.57歳／女性75.45歳、平均寿命：令和7年 男性81.35歳／女性87.33歳）。
 
 ## ③アプリのデプロイURL
-- https://github.com/tiz1112/nokori_kaisu.git
+- https://tiz1112.github.io/nokori_kaisu/
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 - なし
