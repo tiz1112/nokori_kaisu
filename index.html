@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>残り回数</title>
+
+    <!-- ブラウザのタブに表示されるアイコン -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- 見た目の設定(別ファイル) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts から明朝体とゴシック体を読み込む -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ヘッダー:アイコン・タイトル・説明 -->
+    <div class="hero">
+        <img class="hourglass" src="images/icon-hourglass.png" alt="砂時計">
+        <h1>残 り 回 数</h1>
+        <p class="lead">大切なことほど、回数は決まっています。<br>何を数えるかは、あなたが決めてください。</p>
+    </div>
+
+    <div class="wrap">
+
+        <!-- 設定:生年月日と基準。最初に1回だけ入力する -->
+        <div class="panel" id="settingPanel">
+            <div class="panel-title">あ な た の 設 定</div>
+
+            <div class="row">
+                <div class="field">
+                    <label>生年月日</label>
+                    <input type="date" id="birthday">
+                </div>
+                <div class="field">
+                    <label>性別</label>
+                    <select id="gender">
+                        <option value="male">男性</option>
+                        <option value="female">女性</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>どこまでを数えますか</label>
+                <select id="standard">
+                    <option value="health">健康寿命まで(自分で動けるうち)</option>
+                    <option value="life">平均寿命まで</option>
+                </select>
+            </div>
+
+            <div class="actions">
+                <button id="saveSetting" class="primary">設定を保存する</button>
+                <button id="resetSetting" class="ghost">リセット</button>
+            </div>
+
+            <!-- 残り年数の表示。設定を保存すると JavaScript が出す -->
+            <p class="remain" id="remainText"></p>
+            <p class="disclaimer">健康寿命・平均寿命は厚生労働省が公表する平均値です。個人差があります。</p>
+        </div>
+
+        <!-- 登録フォーム:やりたいことと、年に何回 -->
+        <div class="panel">
+            <div class="panel-title">数 え た い こ と</div>
+
+            <div class="field">
+                <label>何を</label>
+                <input id="what" placeholder="例:海に行く">
+            </div>
+            <div class="field">
+                <label>年に何回</label>
+                <input type="number" id="perYear" placeholder="例:2" min="1">
+            </div>
+
+            <div class="actions">
+                <button id="add" class="primary">数える</button>
+                <button id="clear" class="ghost">全部消す</button>
+            </div>
+        </div>
+
+        <!-- 一覧:中身は JavaScript が作る -->
+        <ul id="list" class="items"></ul>
+
+        <footer>記録はこのブラウザにのみ保存されます</footer>
+    </div>
+
+    <!-- 動きの設定(別ファイル) -->
+    <script src="script.js"></script>
+</body>
+
+</html>

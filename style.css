@@ -1,0 +1,309 @@
+/* ============================================
+   色とフォントの設定
+   ============================================ */
+:root {
+    --bg: #f4ebdc;              /* 背景の生成り色 */
+    --panel: #fdfaf4;           /* パネルの白 */
+    --ink: #3a3a38;             /* 本文の文字色 */
+    --muted: #8a857c;           /* 補足の文字色 */
+    --line: #e2dbcd;            /* 枠線 */
+    --accent: #9a5f3c;          /* アクセントの茶 */
+    --serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+    --sans: "Zen Kaku Gothic New", system-ui, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ページ全体。背景は紙のテクスチャを薄く敷く */
+body {
+    margin: 0;
+    padding: 0 0 80px;
+    background:
+        linear-gradient(rgba(244, 235, 220, .5), rgba(244, 235, 220, .5)),
+        url("images/bg-paper.jpg") center / cover fixed no-repeat,
+        var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   ヘッダー
+   ============================================ */
+.hero {
+    text-align: center;
+    padding: 64px 20px 44px;
+}
+
+/* 砂時計のアイコン */
+.hourglass {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    opacity: .8;
+    margin-bottom: 18px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(26px, 6vw, 36px);
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-indent: .1em;
+}
+
+.lead {
+    margin: 18px auto 0;
+    max-width: 420px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 2;
+}
+
+/* ============================================
+   パネル(設定・登録フォーム)
+   ============================================ */
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 26px;
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: .3em;
+    text-indent: .3em;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* 入力欄を横並びにする行 */
+.row {
+    display: flex;
+    gap: 14px;
+}
+
+.row .field {
+    flex: 1;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px 13px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink);
+    font-size: 15px;
+    font-family: var(--serif);
+}
+
+input::placeholder {
+    color: #c3bcae;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ============================================
+   ボタン
+   ============================================ */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 3px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .18s;
+}
+
+.primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.primary:hover {
+    filter: brightness(1.1);
+}
+
+.ghost {
+    width: auto;
+    padding: 13px 20px;
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--line);
+    white-space: nowrap;
+}
+
+.ghost:hover {
+    color: var(--ink);
+}
+
+/* ============================================
+   残り年数と注記
+   ============================================ */
+.remain {
+    margin: 20px 0 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.remain b {
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 24px;
+    padding: 0 4px;
+}
+
+.disclaimer {
+    margin: 12px 0 0;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: #b3ab9c;
+    line-height: 1.7;
+}
+
+/* ============================================
+   一覧
+   ============================================ */
+.items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.items li {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin-bottom: 12px;
+}
+
+.item-what {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 残り回数の大きな数字 */
+.item-count {
+    font-family: var(--sans);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--accent);
+}
+
+.item-count span {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--muted);
+    padding-left: 4px;
+}
+
+.item-sub {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.item-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+}
+
+.item-used {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* 「1回使った」ボタン */
+.use-btn {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 12px;
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.use-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* 登録が0件のときの表示 */
+.empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 48px;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: #b3ab9c;
+}
+
+/* ============================================
+   スマートフォン向けの調整
+   ============================================ */
+@media (max-width: 480px) {
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .panel {
+        padding: 24px 20px;
+    }
+}
